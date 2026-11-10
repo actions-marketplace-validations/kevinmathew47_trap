@@ -1,0 +1,9 @@
+{
+  "name": "trapkit",
+  "description": "A security team for your project: scan for holes, prove them locally, fix, re-test, investigate failed fixes, and lay traps for scrapers and attackers.",
+  "version": "0.1.0",
+  "author": { "name": "Kevin Mathew" },
+  "homepage": "https://github.com/kevinmathew47/trap",
+  "repository": "https://github.com/kevinmathew47/trap",
+  "license": "MIT"
+}

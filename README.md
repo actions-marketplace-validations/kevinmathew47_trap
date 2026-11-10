@@ -1,5 +1,9 @@
 # trapkit
 
+[![CI](https://github.com/kevinmathew47/trap/actions/workflows/ci.yml/badge.svg)](https://github.com/kevinmathew47/trap/actions/workflows/ci.yml)
+![zero dependencies](https://img.shields.io/badge/dependencies-0-2ea44f)
+![license MIT](https://img.shields.io/badge/license-MIT-blue)
+
 **Landmines for AI scrapers and attackers. A security grade for your app. Zero dependencies.**
 
 AI agents now write a large share of new apps, and other AI agents crawl, scrape and probe them. trapkit does two things about that:
@@ -87,16 +91,19 @@ trapkit never sends anything harmful to a visitor. It catches, blocks, wastes ti
 ### Next.js and other web runtimes
 
 ```js
-// middleware.js
+// proxy.js (Next.js 16)  -  on Next.js 15 and older, name the file middleware.js
+// and the function `middleware`
 import { NextResponse } from 'next/server';
 import { webTrap } from 'trapkit/web';
 
 const trap = webTrap({ secret: process.env.TRAPKIT_SECRET });
 
-export async function middleware(request) {
+export async function proxy(request) {
   return (await trap(request)) ?? NextResponse.next();
 }
 ```
+
+Tested on Next.js 16.4 with both file names.
 
 `webTrap` takes a standard `Request` and returns a `Response` or `null`, so it also fits Hono, Cloudflare Workers, Deno and Bun.
 
@@ -126,6 +133,16 @@ npx github:kevinmathew47/trap scan . --json                # machine-readable, f
 
 The command exits with code 1 when it finds anything `high` or worse (change with `--fail-on`), so it works as a CI gate.
 
+### In GitHub Actions
+
+```yaml
+- uses: actions/checkout@v4
+- uses: kevinmathew47/trap@main
+  with:
+    fail-on: high          # critical, high, medium, low or never
+    badge: security.svg    # optional
+```
+
 ### What it checks
 
 | Area | Checks |
@@ -152,7 +169,21 @@ Show it in your README:
 
 ## Security team skill
 
-`skills/trapkit-security-team/SKILL.md` is an agent skill. Copy the folder into `.claude/skills/` (Claude Code) or point your agent at the file, then ask it to "run the security team on this project".
+An agent skill that makes your coding agent work as a security team.
+
+**Claude Code** – install it as a plugin:
+
+```bash
+claude plugin marketplace add kevinmathew47/trap
+```
+
+```bash
+claude plugin install trapkit@trapkit
+```
+
+Then run `/trapkit:security-team`, or just ask Claude to "run the security team on this project".
+
+**Codex, Cursor and other agents** – copy `plugins/trapkit/skills/security-team/` into your agent's skills folder, or point the agent at its `SKILL.md`.
 
 | Role | Job |
 |---|---|
@@ -179,7 +210,7 @@ npm test        # 29 tests, no dependencies to install
 npm run scan    # scan this repo with itself
 ```
 
-Requires Node 18 or newer.
+Requires Node 20 or newer.
 
 ## License
 

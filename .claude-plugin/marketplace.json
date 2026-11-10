@@ -1,0 +1,12 @@
+{
+  "name": "trapkit",
+  "description": "Security skills that go with the trapkit scanner and traps",
+  "owner": { "name": "Kevin Mathew" },
+  "plugins": [
+    {
+      "name": "trapkit",
+      "source": "./plugins/trapkit",
+      "description": "A security team for your project: find, prove, fix, re-test, investigate, and lay traps."
+    }
+  ]
+}

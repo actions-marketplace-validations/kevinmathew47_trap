@@ -1,0 +1,32 @@
+name: trapkit security scan
+description: Scan the repository for common security holes and grade it A to F. Zero dependencies.
+branding:
+  icon: shield
+  color: red
+inputs:
+  path:
+    description: Folder to scan
+    default: .
+  fail-on:
+    description: 'Fail the job at this severity or worse: critical, high, medium, low or never'
+    default: high
+  badge:
+    description: Optional path to write an SVG grade badge to
+    default: ''
+  report:
+    description: Optional path to write a Markdown report to
+    default: ''
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        TK_PATH: ${{ inputs.path }}
+        TK_FAIL_ON: ${{ inputs.fail-on }}
+        TK_BADGE: ${{ inputs.badge }}
+        TK_REPORT: ${{ inputs.report }}
+      run: |
+        args=(scan "$TK_PATH" --fail-on "$TK_FAIL_ON")
+        if [ -n "$TK_BADGE" ]; then args+=(--badge "$TK_BADGE"); fi
+        if [ -n "$TK_REPORT" ]; then args+=(--report "$TK_REPORT"); fi
+        node "$GITHUB_ACTION_PATH/bin/trapkit.js" "${args[@]}"

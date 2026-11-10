@@ -21,16 +21,16 @@
   "files": [
     "bin",
     "src",
-    "skills",
+    "plugins",
     "README.md",
     "LICENSE",
     "docs"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test",
     "demo": "node examples/demo/server.js",
     "scan": "node bin/trapkit.js scan ."
   },

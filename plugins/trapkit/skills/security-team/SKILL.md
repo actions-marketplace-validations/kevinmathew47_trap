@@ -1,5 +1,5 @@
 ---
-name: trapkit-security-team
+name: security-team
 description: Run a security team on this project. Scans the code for security holes, proves each one against the local app, fixes it, re-tests the fix, investigates any fix that fails, and installs traps for scrapers and attackers. Use when asked to secure, harden, audit or pen-test the user's own app, or to check AI-written code for vulnerabilities.
 ---
 

@@ -1,4 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" width="860" role="img" aria-label="Terminal showing a bot stealing a fake .env file, then being served a fake maze page instead of the real site">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" width="860" role="img" aria-label="Terminal animation: a bot steals a fake .env file, is then served a fake maze page instead of the real site, and is flagged when it uses a stolen fake key">
+  <style>
+    .s { opacity: 0; animation-duration: 18s; animation-iteration-count: infinite; animation-timing-function: linear; }
+    .s1 { animation-name: k1 } .s2 { animation-name: k2 } .s3 { animation-name: k3 } .s4 { animation-name: k4 }
+    .s5 { animation-name: k5 } .s6 { animation-name: k6 } .s7 { animation-name: k7 } .s8 { animation-name: k8 }
+    @keyframes k1 { 0%, 2% { opacity: 0 } 3%, 96% { opacity: 1 } 100% { opacity: 0 } }
+    @keyframes k2 { 0%, 10% { opacity: 0 } 11%, 96% { opacity: 1 } 100% { opacity: 0 } }
+    @keyframes k3 { 0%, 19% { opacity: 0 } 20%, 96% { opacity: 1 } 100% { opacity: 0 } }
+    @keyframes k4 { 0%, 33% { opacity: 0 } 34%, 96% { opacity: 1 } 100% { opacity: 0 } }
+    @keyframes k5 { 0%, 41% { opacity: 0 } 42%, 96% { opacity: 1 } 100% { opacity: 0 } }
+    @keyframes k6 { 0%, 51% { opacity: 0 } 52%, 96% { opacity: 1 } 100% { opacity: 0 } }
+    @keyframes k7 { 0%, 64% { opacity: 0 } 65%, 96% { opacity: 1 } 100% { opacity: 0 } }
+    @keyframes k8 { 0%, 72% { opacity: 0 } 73%, 96% { opacity: 1 } 100% { opacity: 0 } }
+    @media (prefers-reduced-motion: reduce) { .s { animation: none; opacity: 1 } }
+  </style>
   <rect width="860" height="300" rx="10" fill="#16161a"/>
   <rect width="860" height="34" rx="10" fill="#22222a"/>
   <rect y="24" width="860" height="10" fill="#22222a"/>
@@ -6,16 +20,16 @@
   <circle cx="40" cy="17" r="6" fill="#febc2e"/>
   <circle cx="60" cy="17" r="6" fill="#28c840"/>
   <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13.5" fill="#d7d7dc" xml:space="preserve">
-    <text x="24" y="66" fill="#8b8b96"># a bot goes looking for secrets</text>
-    <text x="24" y="88"><tspan fill="#7ee787">$</tspan> curl https://your-app.example/.env</text>
-    <text x="24" y="110" fill="#f2cc60">DATABASE_URL=postgres://app_admin:itbm…@db.internal:5432/app_production</text>
-    <text x="24" y="130" fill="#f2cc60">STRIPE_SECRET_KEY=sk_live_qPmb…        <tspan fill="#8b8b96"># all fake, generated on your server</tspan></text>
-
-    <text x="24" y="168" fill="#8b8b96"># it is now banned: every page it asks for is slow and fake</text>
-    <text x="24" y="190"><tspan fill="#7ee787">$</tspan> curl https://your-app.example/products</text>
-    <text x="24" y="212" fill="#ff6b6b">&lt;title&gt;contract internal 5573&lt;/title&gt; ... 8 more fake links ...</text>
-
-    <text x="24" y="250" fill="#8b8b96"># and if it ever tries a stolen key, you see it</text>
-    <text x="24" y="272"><tspan fill="#d2a8ff">canary</tspan>  203.0.113.9  script  POST /api/charge  <tspan fill="#8b8b96">(bait:STRIPE_SECRET_KEY)</tspan></text>
+    <text class="s s1" x="24" y="66" fill="#8b8b96"># a bot goes looking for secrets</text>
+    <text class="s s2" x="24" y="88"><tspan fill="#7ee787">$</tspan> curl https://your-app.example/.env</text>
+    <g class="s s3">
+      <text x="24" y="110" fill="#f2cc60">DATABASE_URL=postgres://app_admin:itbm…@db.internal:5432/app_production</text>
+      <text x="24" y="130" fill="#f2cc60">STRIPE_SECRET_KEY=sk_live_qPmb…        <tspan fill="#8b8b96"># all fake, generated on your server</tspan></text>
+    </g>
+    <text class="s s4" x="24" y="168" fill="#8b8b96"># it is now banned: every page it asks for is slow and fake</text>
+    <text class="s s5" x="24" y="190"><tspan fill="#7ee787">$</tspan> curl https://your-app.example/products</text>
+    <text class="s s6" x="24" y="212" fill="#ff6b6b">&lt;title&gt;contract internal 5573&lt;/title&gt; ... 8 more fake links ...</text>
+    <text class="s s7" x="24" y="250" fill="#8b8b96"># and if it ever tries a stolen key, you see it</text>
+    <text class="s s8" x="24" y="272"><tspan fill="#d2a8ff">canary</tspan>  203.0.113.9  script  POST /api/charge  <tspan fill="#8b8b96">(bait:STRIPE_SECRET_KEY)</tspan></text>
   </g>
 </svg>

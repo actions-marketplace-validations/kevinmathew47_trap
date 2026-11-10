@@ -34,12 +34,12 @@ Add the traps to your app
     // in your HTML layout, anywhere inside <body>:
     //   \${traps.hiddenLinks()} \${traps.aiBait()}
 
-  Next.js (middleware.js)
+  Next.js 16 (proxy.js; on older versions use middleware.js and name the function middleware)
     import { NextResponse } from 'next/server';
     import { webTrap } from 'trapkit/web';
 
     const trap = webTrap({ secret: process.env.TRAPKIT_SECRET });
-    export async function middleware(request) {
+    export async function proxy(request) {
       return (await trap(request)) ?? NextResponse.next();
     }
 
