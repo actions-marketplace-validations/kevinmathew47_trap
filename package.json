@@ -1,0 +1,59 @@
+{
+  "name": "trapkit",
+  "version": "0.1.0",
+  "description": "Landmines for AI scrapers and attackers, plus a security scanner that grades your app. Zero dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "trapkit": "bin/trapkit.js"
+  },
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./web": "./src/web.js",
+    "./core": "./src/core.js",
+    "./scan": "./src/scan/scan.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "skills",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/",
+    "demo": "node examples/demo/server.js",
+    "scan": "node bin/trapkit.js scan ."
+  },
+  "keywords": [
+    "security",
+    "honeypot",
+    "ai-agents",
+    "scraper",
+    "bot-detection",
+    "canary-token",
+    "tarpit",
+    "vulnerability-scanner",
+    "express",
+    "nextjs",
+    "claude-code",
+    "agent-skills"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinmathew47/trap.git"
+  },
+  "homepage": "https://github.com/kevinmathew47/trap#readme",
+  "bugs": {
+    "url": "https://github.com/kevinmathew47/trap/issues"
+  }
+}

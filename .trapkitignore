@@ -1,0 +1,3 @@
+# The scanner's own rule definitions and tests are full of bad patterns on purpose.
+src/scan/rules.js
+test/

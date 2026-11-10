@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" width="860" role="img" aria-label="Terminal showing a trapkit scan that grades a project D and lists three findings with fixes">
+  <rect width="860" height="470" rx="10" fill="#16161a"/>
+  <rect width="860" height="34" rx="10" fill="#22222a"/>
+  <rect y="24" width="860" height="10" fill="#22222a"/>
+  <circle cx="20" cy="17" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="17" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="17" r="6" fill="#28c840"/>
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13.5" fill="#d7d7dc" xml:space="preserve">
+    <text x="24" y="66"><tspan fill="#7ee787">$</tspan> npx github:kevinmathew47/trap scan .</text>
+    <text x="24" y="104"><tspan font-weight="bold" fill="#ffffff">trapkit scan</tspan>  <tspan fill="#8b8b96">~/my-app</tspan></text>
+    <text x="24" y="136">Security grade: <tspan font-weight="bold" fill="#ff6b6b">D</tspan>   <tspan fill="#8b8b96">score 46/100, 84 files checked</tspan></text>
+    <text x="24" y="158"><tspan fill="#d2a8ff">1 critical</tspan>   <tspan fill="#ff6b6b">2 high</tspan>   <tspan fill="#f2cc60">1 medium</tspan>   <tspan fill="#8b8b96">0 low</tspan></text>
+
+    <text x="24" y="196"><tspan fill="#d2a8ff">CRITICAL</tspan> <tspan font-weight="bold" fill="#ffffff">Secret exposed to the browser through a public env variable</tspan></text>
+    <text x="105" y="216" fill="#79c0ff">.env:3</text>
+    <text x="105" y="236" fill="#8b8b96">NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY=eyJh…******</text>
+    <text x="105" y="256">Fix: Rename it without the public prefix and use it only in server code.</text>
+
+    <text x="24" y="292"><tspan fill="#ff6b6b">HIGH    </tspan> <tspan font-weight="bold" fill="#ffffff">API route changes data but has no login check</tspan></text>
+    <text x="105" y="312" fill="#79c0ff">app/api/posts/route.ts:1</text>
+    <text x="105" y="332" fill="#8b8b96">export async function POST(request) {</text>
+    <text x="105" y="352">Fix: Check who is calling and return 401 when nobody is logged in.</text>
+
+    <text x="24" y="388"><tspan fill="#ff6b6b">HIGH    </tspan> <tspan font-weight="bold" fill="#ffffff">Database table without row level security</tspan></text>
+    <text x="105" y="408" fill="#79c0ff">supabase/migrations/001_init.sql:4</text>
+    <text x="105" y="428" fill="#8b8b96">create table public.profiles (</text>
+    <text x="105" y="448">Fix: Enable row level security and write policies for the table.</text>
+  </g>
+</svg>
